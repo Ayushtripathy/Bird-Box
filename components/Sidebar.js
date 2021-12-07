@@ -13,6 +13,7 @@ import {
 import SidebarLink from "./SidebarLink";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 function Sidebar() {
   const { data: session } = useSession();
@@ -29,7 +30,11 @@ function Sidebar() {
         <SidebarLink text="Messages" Icon={InboxIcon} />
         <SidebarLink text="Bookmarks" Icon={BookmarkIcon} />
         <SidebarLink text="Lists" Icon={ClipboardListIcon} />
-        <SidebarLink text="Profile" Icon={UserIcon} />
+        <Link href="/profile">
+          <a>
+            <SidebarLink text="Profile" Icon={UserIcon} />
+          </a>
+        </Link>
         <SidebarLink text="More" Icon={DotsCircleHorizontalIcon} />
       </div>
       <button className="hidden xl:inline ml-auto bg-[#1d9bf0] text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]">
