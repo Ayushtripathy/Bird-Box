@@ -2,19 +2,17 @@
 import { initializeApp, getApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+const firebaseConfig = {
+  apiKey: "AIzaSyBrzUTvZMQzRJcn9D8XV3mgKIwF153cQOo",
+  authDomain: "bird-box-ba16c.firebaseapp.com",
+  projectId: "bird-box-ba16c",
+  storageBucket: "bird-box-ba16c.appspot.com",
+  messagingSenderId: "582251846949",
+  appId: "1:582251846949:web:ee814711d57ed3c4238ecc",
+};
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyB-wr7pm3PCc-x5cjUXIHA1JaYpe26lqrc",
-  authDomain: "twitter-clone-6e5ac.firebaseapp.com",
-  projectId: "twitter-clone-6e5ac",
-  storageBucket: "twitter-clone-6e5ac.appspot.com",
-  messagingSenderId: "648866725892",
-  appId: "1:648866725892:web:1e3fed6b90ee9f494b7551",
-};
 
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();

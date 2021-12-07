@@ -6,20 +6,21 @@ import {
   query,
 } from "@firebase/firestore";
 import { getProviders, getSession, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
-import { modalState } from "../atoms/modalAtom";
 import Modal from "../components/Modal";
-import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 import Post from "../components/Post";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/modalAtom";
+import Sidebar from "../components/Sidebar";
 import { db } from "../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
+import Login from "../components/Login";
 import Comment from "../components/Comment";
-import Head from "next/head";
 
-function PostPage({ trendingResults, followResults, providers }) {
+const PostPage = ({ trendingResults, followResults, providers }) => {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [post, setPost] = useState();
@@ -53,7 +54,7 @@ function PostPage({ trendingResults, followResults, providers }) {
     <div>
       <Head>
         <title>
-          {post?.username} on Twitter: "{post?.text}"
+          {post?.username} on Bird Box: "{post?.text}"
         </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -69,7 +70,6 @@ function PostPage({ trendingResults, followResults, providers }) {
             </div>
             Tweet
           </div>
-
           <Post id={id} post={post} postPage />
           {comments.length > 0 && (
             <div className="pb-72">
@@ -92,7 +92,7 @@ function PostPage({ trendingResults, followResults, providers }) {
       </main>
     </div>
   );
-}
+};
 
 export default PostPage;
 
@@ -100,9 +100,11 @@ export async function getServerSideProps(context) {
   const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
     (res) => res.json()
   );
+
   const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
     (res) => res.json()
   );
+
   const providers = await getProviders();
   const session = await getSession(context);
 
