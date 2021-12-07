@@ -1,14 +1,21 @@
 import { signIn } from "next-auth/react";
+import Head from "next/head";
 import Image from "next/image";
 
 function Login({ providers }) {
   return (
     <div className="flex flex-col items-center space-y-20 pt-48">
+      <Head>
+        <title>Login</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Image
         src="https://rb.gy/ogau5a"
         width={150}
         height={150}
         objectFit="contain"
+        className="transition duration-200 ease-out hover:scale-105 hover:rotate-6"
       />
 
       <div>

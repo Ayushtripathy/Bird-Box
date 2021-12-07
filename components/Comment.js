@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/outline";
 import Moment from "react-moment";
 
-function Comment({ comment }) {
+const Comment = ({ comment }) => {
   return (
     <div className="p-3 flex cursor-pointer border-b border-gray-700">
       <img
@@ -30,7 +30,7 @@ function Comment({ comment }) {
             <span className="hover:underline text-sm sm:text-[15px]">
               <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
             </span>
-            <p className="text-[#d9d9d9] mt-0.5 max-w-lg overflow-scroll text-[15px] sm:text-base">
+            <p className="text-[#d9d9d9] scrollbar-hide mt-0.5 max-w-lg overflow-scroll text-[15px] sm:text-base">
               {comment?.comment}
             </p>
           </div>
@@ -61,6 +61,6 @@ function Comment({ comment }) {
       </div>
     </div>
   );
-}
+};
 
 export default Comment;

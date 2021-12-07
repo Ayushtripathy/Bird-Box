@@ -16,8 +16,7 @@ import {
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 import { signOut, useSession } from "next-auth/react";
-import dynamic from "next/dynamic";
-// const Picker = dynamic(() => import("emoji-picker-react"), { ssr: false });
+// import dynamic from "next/dynamic";
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 
@@ -81,7 +80,7 @@ function Input() {
   return (
     <div
       className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide ${
-        loading && "opacity-60"
+        loading && "opacity-20"
       }`}
     >
       <img
