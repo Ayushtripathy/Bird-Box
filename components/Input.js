@@ -15,7 +15,7 @@ import {
   updateDoc,
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 // import dynamic from "next/dynamic";
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
@@ -87,7 +87,6 @@ function Input() {
         src={session.user.image}
         alt=""
         className="h-11 w-11 rounded-full cursor-pointer"
-        onClick={signOut}
       />
       <div className="divide-y divide-gray-700 w-full">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
